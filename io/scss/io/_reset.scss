@@ -1,0 +1,18 @@
+*{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+::-webkit-input-placeholder{color:inherit;}
+::-moz-placeholder{color:inherit;opacity: 1;}
+:-ms-input-placeholder{color:inherit;}
+html,body{height: 100%;}
+main{display: block;}
+h1, h2, h3, h4, h5, h6, th{font-size: inherit;font-weight: inherit;}
+cite, var, address, dfn{font-style: inherit;}
+body, pre, form, input, textarea, keygen, select, button, h1, h2, h3, h4, h5, h6, p, hr, blockquote, ol, ul, dl, dd, figure, fieldset{margin: 0;}
+ol, fieldset, legend, input, button, textarea{padding: 0;}
+ul{padding-left: 0;}
+ol, ul, li{list-style-type:none;}
+a{text-decoration: none;cursor: pointer;color:inherit;}
+textarea{resize: none;overflow-y: auto;}
+iframe{border-style: none;}
+fieldset, hr, input, button, select, textarea, keygen, img{border-style: none;outline-style: none;font-family: inherit;font-size: inherit;background-color: transparent;}
+[type=button], [type=reset], [type=submit], [type=file], [type=image], button{cursor: pointer;-webkit-appearance: none;-moz-appearance: none;appearance: none;}
+[disabled]{cursor: not-allowed;}

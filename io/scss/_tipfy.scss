@@ -1,0 +1,34 @@
+$tipFontFamily: Arial, Verdana;
+$tipArrowSize: 6px;
+$tipBg: rgba(#000, .8);
+$tipColor: #fff;
+$tipTitleColor: #fff;
+$tipTitleBg: #000;
+.tipfy-position{position:absolute;width:0px;height:0px;z-index:1112;font-family: $tipFontFamily;font-size: inherit;}
+.tipfy-wrap{
+	position:absolute;z-index:99;background-color: $tipBg;color: $tipColor;width:auto;border-radius:3px;box-shadow: 0 4px 10px #ddd;
+	&:before{content:'';position:absolute;border:$tipArrowSize solid transparent;height:0;width:0;}
+	.tipfy-bottom &{
+		margin-top: $tipArrowSize + 2;
+		&:before{left: 50%;bottom: 100%;border-top-style: none;margin-bottom: -1px;margin-left: -$tipArrowSize;border-bottom-color: $tipTitleBg;}
+	}
+	.tipfy-top &{
+		margin-bottom: $tipArrowSize + 2;
+		&:before{left: 50%;top: 100%;border-bottom-style: none;margin-left: -$tipArrowSize;border-top-color: $tipBg;}
+	}
+	.tipfy-left &{
+		margin-right: $tipArrowSize + 2;
+		&:before{top: 50%;left: 100%;border-right-style: none;margin-top: -$tipArrowSize;border-left-color: $tipBg;margin-top: -3px;}
+	}
+	.tipfy-right &{
+		margin-left: $tipArrowSize + 2;
+		&:before{top: 50%;right: 100%;border-left-style: none;margin-top: -$tipArrowSize;border-right-color: $tipBg;margin-top: -3px;}
+	}
+}
+.tipfy-text{font-size:12px;padding:12px;line-height:20px;padding:2px 10px 3px;font-size:12px;border-bottom-style:none;white-space:nowrap;}
+.tipfy-wrap-title{white-space: nowrap;}
+.tipfy-max-width{
+	white-space: normal;
+	.tipfy-wrap-title, .tipfy-text{white-space: normal;}
+}
+.tipfy-title{padding: 1px 8px 3px;font-size: 15px;line-height: 15px;background-color: $tipTitleBg;color: $tipTitleColor;font-weight: bold;border-bottom: 1px solid $tipBg;margin: 1px;border-radius: 3px 3px 0 0;}
