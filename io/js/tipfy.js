@@ -6,8 +6,8 @@ $.fn.tipfy =  function(e, f){
         , width: t.data('tipfyWidth')
         , side: 'up'
     }, e);
-    if(t.is('[tipsy-status="on"]'))return;
-    $(t).attr('tipsy-status','on').on('mouseover', function(e){
+    if(t.is('[this-status="on"]'))return;
+    $(t).attr('this-status','on').on('mouseover', function(e){
         $('.tipfy-position').remove();
         var tip = this
         , text = item.text
