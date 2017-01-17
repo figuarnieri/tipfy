@@ -25,7 +25,7 @@ $tipTitleBg: #000;
 		&:before{top: 50%;right: 100%;border-left-style: none;margin-top: -$tipArrowSize;border-right-color: $tipBg;margin-top: -3px;}
 	}
 }
-.tipfy-text{font-size:12px;padding:12px;line-height:20px;padding:2px 10px 3px;font-size:12px;border-bottom-style:none;white-space:nowrap;}
+.tipfy-text{font-size:12px;line-height:20px;padding:2px 10px 3px;font-size:12px;border-bottom-style:none;white-space:nowrap;}
 .tipfy-wrap-title{white-space: nowrap;}
 .tipfy-max-width{
 	white-space: normal;
