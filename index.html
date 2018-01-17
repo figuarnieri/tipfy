@@ -1,21 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Tipfy</title>
-    <link rel="stylesheet" href="io/css/all.css">
-    <style>
-        body{padding: 100px;font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;font-size: 16px;}
-    </style>
-    <script src="io/js/all.js"></script>
-    <script src="io/js/tipfy.js"></script>
+  <meta charset="UTF-8">
+  <title>Tipfy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, minimum-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <link rel="stylesheet" href="tipfy.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <span class="teste" data-tipfy="Filipes Nascimento Guarnieri de Souza Carvalho Santos" data-tipfy-width="200" data-tipfy-side="bottom">teste</span>
-    <script>
-        //$(function(e){
-            $('.teste').tipfy({title: 'Fiqaws sd aas',width: 100, side: 'right'});
-        //});
-    </script>
+<body>  
+  <div class="screen--full">
+    <div class="screen--tools">
+      <div class="wrap-social">
+        <a href="https://github.com/figuarnieri/tipfy/archive/master.zip" class="screen--btn screen--btn-download" target="_blank" aria-label="Download button">Download</a>
+        <a href="https://github.com/figuarnieri/tipfy" class="screen--btn screen--btn-github" target="_blank" aria-label="Button to repository on GitHub.com">GitHub</a>
+      </div>
+    </div>
+    <div class="screen--content">
+      <svg id="screen--logo" class="screen--logo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 311.9 235.6">
+        <path class="st0" d="M8.5,0h294.9c4.7,0,8.5,3.8,8.5,8.5v61.3C272.2,83.1,221.6,91,166.5,91C102.6,91,44.8,80.3,2.9,63 c-1-0.4-2-0.8-2.9-1.2V8.5C0,3.8,3.8,0,8.5,0L8.5,0z M130.2,181.1l54.6,54.6v-54.6h118.7c4.7,0,8.5-3.8,8.5-8.5V72.8 c-39.9,13.2-90.4,21-145.4,21c-64.3,0-122.5-10.8-164.7-28.2c-0.6-0.3-1.2-0.5-1.9-0.8v107.7c0,4.7,3.8,8.5,8.5,8.5H130.2z"/>
+        <polygon class="st1 letter-1" points="92.2,122.1 79.5,122.1 79.5,165.7 58.9,165.7 58.9,122.1 45.5,122.1 46.4,105.8 93.3,105.8"/>
+        <rect class="st1 letter-2" x="96.8" y="105.8" width="20.4" height="59.9"/>
+        <path class="st1 letter-3" d="M149.9,147h-4.1v18.7h-20.3v-59.9h23.4c7.9,0,13.7,1.6,17.3,4.8c3.6,3.2,5.4,8.5,5.4,15.9 c0,7.4-1.8,12.6-5.2,15.8C162.8,145.4,157.3,147,149.9,147L149.9,147z"/>
+        <polygon class="st1 letter-4" points="214.3,121.7 196.8,121.7 196.8,129.9 210.1,129.9 210.1,143.8 196.8,143.8 196.8,165.7 176.1,165.7 176.1,105.8 215.7,105.8"/>
+        <polygon class="st1 letter-5" points="266.4,105.8 250.6,146.7 250.6,165.7 230,165.7 230,146.6 214.7,105.8 236.4,105.8 240.7,127.8 241.2,127.8 245.3,105.8"/>
+        <path class="st1" d="M88.9,30.4c6.7,0,12.1,5.4,12.1,12.1c0,6.7-5.4,12.1-12.1,12.1s-12.1-5.4-12.1-12.1C76.8,35.8,82.3,30.4,88.9,30.4L88.9,30.4z">
+          <animate attributeName="d" dur="5s" repeatCount="indefinite" values="M88.9,30.4c6.7,0,12.1,5.4,12.1,12.1c0,6.7-5.4,12.1-12.1,12.1s-12.1-5.4-12.1-12.1 C76.8,35.8,82.3,30.4,88.9,30.4L88.9,30.4z;M100.2,38.3H77.6c-0.5,1.3-0.8,2.7-0.8,4.2c0,1.2,0.2,2.5,0.5,3.6h23.1c0.4-1.1,0.5-2.3,0.5-3.6C101,41,100.7,39.6,100.2,38.3z;M88.9,30.4c6.7,0,12.1,5.4,12.1,12.1c0,6.7-5.4,12.1-12.1,12.1s-12.1-5.4-12.1-12.1 C76.8,35.8,82.3,30.4,88.9,30.4L88.9,30.4z;M100.2,38.3H77.6c-0.5,1.3-0.8,2.7-0.8,4.2c0,1.2,0.2,2.5,0.5,3.6h23.1c0.4-1.1,0.5-2.3,0.5-3.6C101,41,100.7,39.6,100.2,38.3z;M88.9,30.4c6.7,0,12.1,5.4,12.1,12.1c0,6.7-5.4,12.1-12.1,12.1s-12.1-5.4-12.1-12.1 C76.8,35.8,82.3,30.4,88.9,30.4L88.9,30.4z;M88.9,30.4c6.7,0,12.1,5.4,12.1,12.1c0,6.7-5.4,12.1-12.1,12.1s-12.1-5.4-12.1-12.1 C76.8,35.8,82.3,30.4,88.9,30.4L88.9,30.4z;" keyTimes="0; 0.02; 0.05; 0.07; 0.09 ;1" />
+        </path>
+        <path class="st1" d="M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z">
+          <animate attributeName="d" dur="5s" repeatCount="indefinite" values="M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;M234.4,38.3h-22.8c-0.4,1.2-0.6,2.5-0.6,3.9c0,1.4,0.2,2.7,0.6,3.9h22.8c0.4-1.2,0.6-2.5,0.6-3.9 C235,40.9,234.8,39.6,234.4,38.3z;M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;M234.4,38.3h-22.8c-0.4,1.2-0.6,2.5-0.6,3.9c0,1.4,0.2,2.7,0.6,3.9h22.8c0.4-1.2,0.6-2.5,0.6-3.9 C235,40.9,234.8,39.6,234.4,38.3z;M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;" keyTimes="0; 0.02; 0.05; 0.07; 0.09 ;1" />
+        </path>
+      </svg>
+      <div class="screen--subtitle">Tooltip with ES 6, Simple Custom and <span class="screen--subtitle-strong">Only 4kb <sup class="screen--info" data-tipfy="4kb = CSS+JS" data-tipfy-class="screen--custom">*</sup></span></div>
+    </div>
+  </div>
+  <div class="page">
+    <h1 class="page--bigtitle">Tipfy - Simple Tooltip ES 6</h1>
+    <p>A Javascript library ES6, without a dependency of jQuery, Zepto, and etc... Very simple to install and use. With only 4kb code (JS + CSS)</p>
+    <div class="page--contain">
+      <h2 class="page--title">Install / Usage</h2>
+      <h3 class="page--subtitle">Add script file</h3>
+      <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/tipfy/master/tipfy.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</span></code>
+      or
+      <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"path/js/tipfy.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</code>
+      <h3 class="page--subtitle">Add style file</h3>
+      <code><span data-clipboard>&lt;<span class="page--tag">link</span> <span class="page--attr">rel</span>=<span class="page--value">"stylesheet"</span> <span class="page--attr">href</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/tipfy/master/tipfy.css"</span>&gt;</span></code>
+      or
+      <code><span data-clipboard>&lt;<span class="page--tag">link</span> <span class="page--attr">rel</span>=<span class="page--value">"stylesheet"</span> <span class="page--attr">href</span>=<span class="page--value">"path/js/tipfy.css"</span>&gt;</span></code>
+      <h3 class="page--subtitle">HTML <small class="page--subtitle-small">(by class or attribute)</small></h3>
+      <p>Insert a selector in class tag</p>
+      <code><span data-clipboard>&lt;<span class="page--tag">i</span> <span class="page--attr">class</span>=<span class="page--value">"fa fa-user"</span> <span class="page--important">data-tipfy="User Settings"</span> <span class="page--attr">aria-hidden</span>=<span class="page--value">"true"</span> <span class="page--attr">aria-label</span>=<span class="page--value">"User Settings"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</span></code>
+      or
+      <code><span data-clipboard>&lt;<span class="page--tag">i</span> <span class="page--attr">class</span>=<span class="page--value">"fa fa-user <span class="page--important">tooltip-by-class</span>"</span> <span class="page--attr">aria-hidden</span>=<span class="page--value">"true"</span> <span class="page--attr">aria-label</span>=<span class="page--value">"User Settings"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</span></code>
+      <h3 class="page--subtitle">Javascript Simple <small class="page--subtitle-small">(by attribute)</small></h3>
+      <code><span data-clipboard>&lt;<span class="page--tag">script</span>&gt;
+  <span class="page--tag">new</span> <span class="page--value">Tipfy('</span><span class="page--important">[data-tipfy]</span><span class="page--value">')</span>;
+&lt;/<span class="page--tag">script</span>&gt;</span></code>
+      or
+      <code><span data-clipboard>&lt;<span class="page--tag">script</span>&gt;
+  <span class="page--tag">new</span> <span class="page--value">Tipfy('</span><span class="page--important">.tooltip-by-class</span><span class="page--value">')</span>;
+&lt;/<span class="page--tag">script</span>&gt;</span></code>
+    </div>
+    <div class="page--contain">
+      <h2 class="page--title">Examples</h2>
+      <div class="example">
+        <div class="example--item">
+          <span class="example--text">The Simple Tooltip</span>
+          <span class="example--icon" data-tipfy="The Simple Tooltip">&#x1f4ac;</span>
+        </div>
+        <div class="example--item">
+          <span class="example--text">Support HTML</span>
+          <span class="example--icon" data-tipfy="<b style='font-size: 16px;'>Bold</b>, <i>Italic</i>, <del>Strikethrough</del> and etc...">&#x1f310;</span>
+        </div>
+        <div class="example--item">
+          <span class="example--text">Directions Tooltip</span>
+          <span class="example--icon" data-tipfy="Tooltip Top" data-tipfy-side="top">&#x1f446;</span>
+          <span class="example--icon" data-tipfy="Tooltip Bottom" data-tipfy-side="bottom">&#x1f447;</span>
+          <span class="example--icon" data-tipfy="Tooltip Left" data-tipfy-side="left">&#x1f448;</span>
+          <span class="example--icon" data-tipfy="Tooltip Right" data-tipfy-side="right">&#x1f449;</span>
+        </div>
+        <div class="example--item" data-tipfy-class="class--custom">
+          <span class="example--text">Add your custom class</span>
+          <span class="example--icon" data-tipfy="Add class: .class--custom" data-tipfy-class="class--custom">&#x1f60d;</span>
+        </div>
+        <div class="example--item">
+          <span class="example--text">Get HTML Element <small class="example--text-small">(.screen--logo)</small></span>
+          <span class="example--icon" data-tipfy=".screen--logo" data-tipfy-side="right" data-tipfy-class="class--custom">&#x1f4af;</span>
+        </div>
+        <div class="example--item">
+          <span class="example--text">Raw Text <small class="example--text-small">(.screen--logo)</small></span>
+          <span class="example--icon" data-tipfy=".screen--logo" data-tipfy-text="">&#x1f5ff;</span>
+        </div>
+      </div>
+    </div>
+    <div class="page--contain">
+      <h2 class="page--title">Data attributes  <small class="page--subtitle-small">[data-*]</small></h2>
+      <p>If necessary, you could add attributes in the tag, to configure your tooltips options</p>
+      <h3 class="page--subtitle">data-tipfy</h3>
+      <p>Attribute to add text in your tooltip or HTML Element</p>
+      <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--important">data-tipfy="Simple Text"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
+      <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--important">data-tipfy=".select-class"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
+      <h3 class="page--subtitle">data-tipfy-side</h3>
+      <p>Attribute to add direction side in your tooltip</p>
+      <ul class="page--list">
+        <li>[data-tipfy-side="top"] <span class="page--default">(default)</span></li>
+        <li>[data-tipfy-side="bottom"]</li>
+        <li>[data-tipfy-side="right"]</li>
+        <li>[data-tipfy-side="left"]</li>
+      </ul>
+      <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--attr">data-tipfy</span>=<span class="page--value">"Simple Text"</span> <span class="page--important">data-tipfy-side="right"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
+      <h3 class="page--subtitle">data-tipfy-class</h3>
+      <p>Attribute to add one or more custom class</p>
+      <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--attr">data-tipfy</span>=<span class="page--value">"Simple Text"</span> <span class="page--important">data-tipfy-class="select-class-custom"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
+      <h3 class="page--subtitle">data-tipfy-text</h3>
+      <p>Add data-tipfy-text attribute to get raw text, if your tooltip text is a selector css</p>
+      <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--attr">data-tipfy</span>=<span class="page--value">".select-class"</span> <span class="page--important">data-tipfy-text=""</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
+    </div>
+    <div class="page--contain">
+      <h2 class="page--title">Source</h2>
+      <p>
+        <a href="https://github.com/figuarnieri/tipfy" target="_blank">Github</a> | <a href="https://twitter.com/figuarnieri" target="_blank">@figuarnieri</a>
+      </p>
+    </div>
+    <div class="page--contain">
+      <h2 class="page--title">License</h2>
+      <p>
+        The MIT License<br>
+        Copyright 2018 <sup>&copy;</sup> <a href="https://figuarnieri.github.io/" target="_blank">Filipe Guarnieri</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
+  <script>const clipcode=new Clipboard('[data-clipboard]',{target:(e)=>{e.setAttribute('data-clipboard-copy','');return document.querySelector(e.dataset.clipboard==='data'?'[data-clipboard-copy] .page--important':'[data-clipboard-copy]')}});clipcode.on('success',(e)=>{e.trigger.removeAttribute('data-clipboard-copy');});</script>
+
+  <script src="tipfy.js"></script>
+  <script>
+    new Tipfy('[data-tipfy]');
+  </script>
 </body>
 </html>
