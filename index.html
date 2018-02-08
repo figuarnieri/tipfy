@@ -4,9 +4,76 @@
   <meta charset="UTF-8">
   <title>Tipfy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, minimum-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-  <link rel="stylesheet" href="tipfy.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tipfy.min.css">
+  <style>
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    body{font-family: Arial, Helvetica, sans-serif;}
+    @keyframes logo {
+      0% {opacity: 0;transform: rotateX(90deg) translate(100px, 50px) scale(0);}
+      100% {opacity: 1;transform: rotateX(0deg) translate(0px, 0px) scale(1);}
+    }
+    @keyframes logo-2 {
+      0% {fill: #fefefe;}
+      100% {fill: #e66;}
+    }
+    .screen--full{min-height: 75vh;background-image: radial-gradient(circle at center, #eee 50%, #aaa 100%);display: flex;align-items: center;}
+    .screen--content{width: 100%;text-align: center;}
+    .screen--logo{width: 100%;max-width: 300px;margin: 0 auto;display: block;perspective: 100px;transform-origin: 0% 0%;}
+    .screen--logo .st0{fill:#221F20;}
+    .screen--logo .st1{fill:#fefefe;}
+    .screen--logo .st1{transform-origin: 0% 0%;}
+    .screen--tools{position: absolute;right: 10px;top: 10px;}
+    .screen--custom{background-color: #e33;color: #fff;}
+    .screen--custom.tipfy__side-top:before{border-top-color: #e33;}
+    .screen--btn{text-decoration: none;background-color: #e66;color: #fff;padding: 8px 20px;border-radius: 4px;font-size: 14px;border: 1px solid #c66;box-shadow: 0 -1px 0px rgba(255,255,255,.2) inset;font-family: 'Dosis', sans-serif;font-weight: bold;display: inline-block;}
+    .screen--btn:hover{background-color: #e33;border: 1px solid #c33;}
+    .screen--subtitle{width: 100%;text-align: center;font-family: 'Dosis', sans-serif;color: #e33;font-weight: lighter;font-size: 30px;margin-top: 50px;}
+    .screen--subtitle-strong{font-weight: bold;}
+    .screen--info{cursor: help;}
+    .letter-1{animation: logo .3s;}
+    .letter-2{animation: logo .6s;}
+    .letter-3{animation: logo .9s;}
+    .letter-4{animation: logo 1.2s, logo-2 .5s 1.4s forwards;}
+    .letter-5{animation: logo 1.3s, logo-2 .5s 1.4s forwards;}
+    .page{padding: 40px 100px;background-color: #fff;font-family: Arial, Helvetica, sans-serif;color: #222;}
+    .page a{color: #ee7517;text-decoration: none;}
+    .page a:hover{color: #000;}
+    .page--input{width: 100%;padding: 10px;font-size: 20px;border-radius: 4px;border: 1px solid #ccc;}
+    .page--bigtitle{font-size: 40px;margin-bottom: 5px;}
+    .page--contain{margin: 10px 0;background-color: #f6f6f6;padding: 10px;border-radius: 4px;}
+    .page--subtitle{margin-top: 20px;font-size: 20px;}
+    .page--subtitle-small{font-size: 15px;}
+    .page code{background-color: #222;display: block;padding: 5px;color: #fff;border-radius: 3px;white-space: pre;margin-bottom: 3px;}
+    .page p{margin-bottom: 5px;}
+    .page--tag{color: #f92672;}
+    .page--attr{color: #a6e22e;}
+    .page--value{color: #e6db74;}
+    .page--list{margin: 5px 30px 10px;font-weight: bold;list-style-type: circle;}
+    .page--default{font-weight: lighter;}
+    .page--important{color: #66d9ef;font-weight: bold;font-style: italic;}
+    .class--custom{background-color: #fff;color: #e66;box-shadow: 0 0 20px #000;font-family: Courier New, Courier New, monospace;text-transform: uppercase;font-size: 20px;}
+    .class--custom.tipfy__side-top:before{border-top-color: #fff;}
+    .class--custom.tipfy__side-right:before{border-right-color: #fff;}
+    .example--item{display: flex;align-items: center;margin-bottom: 4px;}
+    .example--text{border: 4px solid #222;line-height: 42px;padding: 0 20px;background-color: #222;color: #fff;border-radius: 4px 0 0 4px;border-right-style: none;}
+    .example--text-small{line-height: normal;}
+    .example--icon{width: 50px;height: 50px;line-height: 42px;font-size: 30px;background-color: #fff;border: 4px solid #222;text-align: center;cursor: default;}
+    .example--icon:last-child{border-radius: 0 4px 4px 0;}
+    @media (max-width: 768px){
+      .screen--full{display: block;}
+      .screen--tools{position: relative;width: 100%;right: auto;top: auto;padding: 10px;text-align: right;}
+      .screen--logo{max-width: 230px;}
+      .screen--subtitle{margin-top: 20px;}
+      .example--item{background-color: #222;border-radius: 3px;flex-wrap: wrap;text-align: center;justify-content: center;}
+      .example--text{width: 100%;background-color: transparent;border-color: transparent;}
+      .page{padding: 20px;}
+      .page code{overflow: auto;padding: 20px 10px;}
+      .page--label{text-align: left;width: 100%;}
+      .page--field{width: 100%;}
+    }
+  </style>
 </head>
 <body>  
   <div class="screen--full">
@@ -31,7 +98,7 @@
           <animate attributeName="d" dur="5s" repeatCount="indefinite" values="M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;M234.4,38.3h-22.8c-0.4,1.2-0.6,2.5-0.6,3.9c0,1.4,0.2,2.7,0.6,3.9h22.8c0.4-1.2,0.6-2.5,0.6-3.9 C235,40.9,234.8,39.6,234.4,38.3z;M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;M234.4,38.3h-22.8c-0.4,1.2-0.6,2.5-0.6,3.9c0,1.4,0.2,2.7,0.6,3.9h22.8c0.4-1.2,0.6-2.5,0.6-3.9 C235,40.9,234.8,39.6,234.4,38.3z;M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;" keyTimes="0; 0.02; 0.05; 0.07; 0.09 ;1" />
         </path>
       </svg>
-      <div class="screen--subtitle">Tooltip with ES 6, Simple Custom and <span class="screen--subtitle-strong">Only 4kb <sup class="screen--info" data-tipfy="4kb = CSS+JS" data-tipfy-class="screen--custom">*</sup></span></div>
+      <div class="screen--subtitle">Tooltip with ES 6, Simple Custom and <span class="screen--subtitle-strong">Only 2kb <sup class="screen--info" data-tipfy="2kb = CSS + JS + gzip" data-tipfy-class="screen--custom">*</sup></span></div>
     </div>
   </div>
   <div class="page">
@@ -46,7 +113,7 @@
       <h3 class="page--subtitle">Add style file</h3>
       <code><span data-clipboard>&lt;<span class="page--tag">link</span> <span class="page--attr">rel</span>=<span class="page--value">"stylesheet"</span> <span class="page--attr">href</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/tipfy/master/tipfy.css"</span>&gt;</span></code>
       or
-      <code><span data-clipboard>&lt;<span class="page--tag">link</span> <span class="page--attr">rel</span>=<span class="page--value">"stylesheet"</span> <span class="page--attr">href</span>=<span class="page--value">"path/js/tipfy.css"</span>&gt;</span></code>
+      <code><span data-clipboard>&lt;<span class="page--tag">link</span> <span class="page--attr">rel</span>=<span class="page--value">"stylesheet"</span> <span class="page--attr">href</span>=<span class="page--value">"path/css/tipfy.min.css"</span>&gt;</span></code>
       <h3 class="page--subtitle">HTML <small class="page--subtitle-small">(by class or attribute)</small></h3>
       <p>Insert a selector in class tag</p>
       <code><span data-clipboard>&lt;<span class="page--tag">i</span> <span class="page--attr">class</span>=<span class="page--value">"fa fa-user"</span> <span class="page--important">data-tipfy="User Settings"</span> <span class="page--attr">aria-hidden</span>=<span class="page--value">"true"</span> <span class="page--attr">aria-label</span>=<span class="page--value">"User Settings"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</span></code>
@@ -134,7 +201,7 @@
   <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
   <script>const clipcode=new Clipboard('[data-clipboard]',{target:(e)=>{e.setAttribute('data-clipboard-copy','');return document.querySelector(e.dataset.clipboard==='data'?'[data-clipboard-copy] .page--important':'[data-clipboard-copy]')}});clipcode.on('success',(e)=>{e.trigger.removeAttribute('data-clipboard-copy');});</script>
 
-  <script src="tipfy.js"></script>
+  <script src="tipfy.min.js"></script>
   <script>
     new Tipfy('[data-tipfy]');
   </script>
