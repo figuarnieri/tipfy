@@ -18,7 +18,7 @@ class Tipfy {
   build(tag){
     const tipfy = tag.dataset.tipfy,
     rect = tag.getBoundingClientRect();
-    document.body.insertAdjacentHTML('beforeend', `<div class="tipfy__wrap"><div class="tipfy__main">${tipfy}</div></div>`);
+    document.body.insertAdjacentHTML('beforeend', `<div class="tipfy__wrap" role="tooltip"><div class="tipfy__main">${tipfy}</div></div>`);
     const wrap = document.querySelector('.tipfy__wrap'),
     classCustom = tag.dataset.tipfyClass;
     try{
