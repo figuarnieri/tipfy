@@ -1,15 +1,15 @@
 class Tipfy {
   constructor(selector){
-    document.querySelectorAll(selector).forEach( item => {
-      if(item.hasAttribute('title')){
-        const title = item.getAttribute('title');
-        item.dataset.tipfy = title;
-        item.removeAttribute('title');
-        item.setAttribute('aria-label', title);
-      }
-    })
     document.addEventListener('mouseover', e => {
       const tag = e.target;
+      document.querySelectorAll(selector).forEach( item => {
+        if(item.hasAttribute('title')){
+          const title = item.getAttribute('title');
+          item.dataset.tipfy = title;
+          item.removeAttribute('title');
+          item.setAttribute('aria-label', title);
+        }
+      });
       if(tag.hasAttribute('data-tipfy')){
         this.build(tag);
       }
@@ -29,9 +29,7 @@ class Tipfy {
     } catch(e){}
 
     if(classCustom){
-      classCustom.split(' ').forEach( item => {
-        wrap.children[0].classList.add(item);
-      })
+      classCustom.split(' ').forEach( item => wrap.children[0].classList.add(item));
     }
 
     this.side(tag, rect, wrap);
@@ -43,30 +41,17 @@ class Tipfy {
     left = window.scrollX,
     tipSide = tag.dataset.tipfySide||'top',
     position = {
-      right: () => {
-        wrap.setAttribute('style', `left: ${rect.right + left}px;top: ${rect.top + rect.height/2 + top}px;width: ${wrapRect.width}px;`);
-        wrap.children[0].classList.add('tipfy__side-right');
-      }
-      , left: () => {
-        wrap.setAttribute('style', `left: ${rect.left + left - wrapRect.width}px;top: ${rect.top + rect.height/2 + top}px;width: ${wrapRect.width}px;`);
-        wrap.children[0].classList.add('tipfy__side-left');
-      }
-      , bottom: () => {
-        wrap.setAttribute('style', `left: ${rect.left + left - wrapRect.width/2 + rect.width/2}px;top: ${rect.bottom + top}px;height: ${wrapRect.height}px;width: ${wrapRect.width}px;`);
-        wrap.children[0].classList.add('tipfy__side-bottom');
-      }
-      , top: () => {
-        wrap.setAttribute('style', `left: ${rect.left + left - wrapRect.width/2 + rect.width/2}px;top: ${rect.top - wrapRect.height + top}px;height: ${wrapRect.height}px;width: ${wrapRect.width}px;`);
-        wrap.children[0].classList.add('tipfy__side-top');
-      }
+        right: () => wrap.setAttribute('style', `left: ${rect.right + left}px;top: ${rect.top + rect.height/2 + top}px;width: ${wrapRect.width}px;`)
+      , left: () => wrap.setAttribute('style', `left: ${rect.left + left - wrapRect.width}px;top: ${rect.top + rect.height/2 + top}px;width: ${wrapRect.width}px;`)
+      , bottom: () => wrap.setAttribute('style', `left: ${rect.left + left - wrapRect.width/2 + rect.width/2}px;top: ${rect.bottom + top}px;height: ${wrapRect.height}px;width: ${wrapRect.width}px;`)
+      , top: () => wrap.setAttribute('style', `left: ${rect.left + left - wrapRect.width/2 + rect.width/2}px;top: ${rect.top - wrapRect.height + top}px;height: ${wrapRect.height}px;width: ${wrapRect.width}px;`)
     }
     position[tipSide]();
+    wrap.children[0].classList.add(`tipfy__side-${tipSide}`);
   }
   remove(tag){
     tag.addEventListener('mouseout', event => {
-      document.querySelectorAll('.tipfy__wrap').forEach(item => {
-        item.remove();
-      });
+      document.querySelectorAll('.tipfy__wrap').forEach(item => item.remove());
     }, {
       once: true
     });
