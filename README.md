@@ -1,5 +1,5 @@
 # Tipfy - Simple Tooltip ES 6
-A Javascript library ES6, without a dependency of jQuery, Zepto, and etc... Very simple to install and use. With only 4kb code (JS + CSS)
+A Javascript library ES6, without a dependency of jQuery, Zepto, and etc... Very simple to install and use. With only 2kb code (JS + CSS)
 ## Install / Usage
 ### Add script file
 ```html
