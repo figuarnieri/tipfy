@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, minimum-scale=1" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-  <link rel="stylesheet" href="tipfy.min.css">
+  <link rel="stylesheet" href="css/tipfy.min.css">
   <style>
     *{margin: 0;padding: 0;box-sizing: border-box;}
     body{font-family: Arial, Helvetica, sans-serif;}
@@ -25,8 +25,6 @@
     .screen--logo .st1{fill:#fefefe;}
     .screen--logo .st1{transform-origin: 0% 0%;}
     .screen--tools{position: absolute;right: 10px;top: 10px;}
-    .screen--custom{background-color: #e33;color: #fff;}
-    .screen--custom.tipfy__side-top:before{border-top-color: #e33;}
     .screen--btn{text-decoration: none;background-color: #e66;color: #fff;padding: 8px 20px;border-radius: 4px;font-size: 14px;border: 1px solid #c66;box-shadow: 0 -1px 0px rgba(255,255,255,.2) inset;font-family: 'Dosis', sans-serif;font-weight: bold;display: inline-block;}
     .screen--btn:hover{background-color: #e33;border: 1px solid #c33;}
     .screen--subtitle{width: 100%;text-align: center;font-family: 'Dosis', sans-serif;color: #e33;font-weight: lighter;font-size: 30px;margin-top: 50px;}
@@ -41,10 +39,12 @@
     .page a{color: #ee7517;text-decoration: none;}
     .page a:hover{color: #000;}
     .page--input{width: 100%;padding: 10px;font-size: 20px;border-radius: 4px;border: 1px solid #ccc;}
+    .page--title{font-size: 28px;margin-top: 30px;}
     .page--bigtitle{font-size: 40px;margin-bottom: 5px;}
+    .page--subtitle{font-size: 23px;margin-bottom: 10px;}
     .page--contain{margin: 10px 0;background-color: #f6f6f6;padding: 10px;border-radius: 4px;}
-    .page--subtitle{margin-top: 20px;font-size: 20px;}
-    .page--subtitle-small{font-size: 15px;}
+    .page--minititle{margin-top: 20px;font-size: 20px;}
+    .page--minititle-small{font-size: 15px;}
     .page code{background-color: #222;display: block;padding: 5px;color: #fff;border-radius: 3px;white-space: pre;margin-bottom: 3px;}
     .page p{margin-bottom: 5px;}
     .page--tag{color: #f92672;}
@@ -54,8 +54,9 @@
     .page--default{font-weight: lighter;}
     .page--important{color: #66d9ef;font-weight: bold;font-style: italic;}
     .class--custom{background-color: #fff;color: #e66;box-shadow: 0 0 20px #000;font-family: Courier New, Courier New, monospace;text-transform: uppercase;font-size: 20px;}
-    .class--custom.tipfy__side-top:before{border-top-color: #fff;}
-    .class--custom.tipfy__side-right:before{border-right-color: #fff;}
+    .class--custom.tipfy--left.tipfy--top:before{border-bottom-color: #fff;}
+    .class--custom.tipfy--left.tipfy--bottom:before{border-top-color: #fff;}
+    .class--custom.tipfy--side-right:before{border-right-color: #fff;}
     .example--item{display: flex;align-items: center;margin-bottom: 4px;}
     .example--text{border: 4px solid #222;line-height: 42px;padding: 0 20px;background-color: #222;color: #fff;border-radius: 4px 0 0 4px;border-right-style: none;}
     .example--text-small{line-height: normal;}
@@ -98,38 +99,59 @@
           <animate attributeName="d" dur="5s" repeatCount="indefinite" values="M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;M234.4,38.3h-22.8c-0.4,1.2-0.6,2.5-0.6,3.9c0,1.4,0.2,2.7,0.6,3.9h22.8c0.4-1.2,0.6-2.5,0.6-3.9 C235,40.9,234.8,39.6,234.4,38.3z;M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;M234.4,38.3h-22.8c-0.4,1.2-0.6,2.5-0.6,3.9c0,1.4,0.2,2.7,0.6,3.9h22.8c0.4-1.2,0.6-2.5,0.6-3.9 C235,40.9,234.8,39.6,234.4,38.3z;M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;M223,30.4c6.7,0,12,5.4,12,12.1c0,6.7-5.4,12.1-12,12.1c-6.7,0-12.1-5.4-12.1-12.1 C210.9,35.8,216.3,30.4,223,30.4L223,30.4z;" keyTimes="0; 0.02; 0.05; 0.07; 0.09 ;1" />
         </path>
       </svg>
-      <div class="screen--subtitle">Tooltip with ES 6, Simple Custom and <span class="screen--subtitle-strong">Only 2kb <sup class="screen--info" data-tipfy="2kb = CSS + JS" data-tipfy-class="screen--custom">*</sup></span></div>
+      <div class="screen--subtitle">Tooltip with ES 6, Simple Custom and <span class="screen--subtitle-strong">Only 4kb <sup class="screen--info" data-tipfy="4kb = CSS + JS">*</sup></span></div>
     </div>
   </div>
   <div class="page">
     <h1 class="page--bigtitle">Tipfy - Simple Tooltip ES 6</h1>
-    <p>A Javascript library ES6, without a dependency of jQuery, Zepto, and etc... Very simple to install and use. With only 2kb code (JS + CSS)</p>
-    <div class="page--contain">
+    <p>A Javascript library ES6, without a dependency of jQuery, Zepto, and etc... Very simple to install and use. With only 4kb code (JS + CSS)</p>
+    <section>
       <h2 class="page--title">Install / Usage</h2>
-      <h3 class="page--subtitle">Add script file</h3>
-      <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/tipfy/master/tipfy.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</span></code>
-      or
-      <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"path/js/tipfy.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</code>
-      <h3 class="page--subtitle">Add style file</h3>
-      <code><span data-clipboard>&lt;<span class="page--tag">link</span> <span class="page--attr">rel</span>=<span class="page--value">"stylesheet"</span> <span class="page--attr">href</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/tipfy/master/tipfy.css"</span>&gt;</span></code>
-      or
-      <code><span data-clipboard>&lt;<span class="page--tag">link</span> <span class="page--attr">rel</span>=<span class="page--value">"stylesheet"</span> <span class="page--attr">href</span>=<span class="page--value">"path/css/tipfy.min.css"</span>&gt;</span></code>
-      <h3 class="page--subtitle">HTML <small class="page--subtitle-small">(by class or attribute)</small></h3>
-      <p>Insert a selector in class tag</p>
-      <code><span data-clipboard>&lt;<span class="page--tag">i</span> <span class="page--attr">class</span>=<span class="page--value">"fa fa-user"</span> <span class="page--important">data-tipfy="User Settings"</span> <span class="page--attr">aria-hidden</span>=<span class="page--value">"true"</span> <span class="page--attr">aria-label</span>=<span class="page--value">"User Settings"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</span></code>
-      or
-      <code><span data-clipboard>&lt;<span class="page--tag">i</span> <span class="page--attr">class</span>=<span class="page--value">"fa fa-user <span class="page--important">tooltip-by-class</span>"</span> <span class="page--attr">aria-hidden</span>=<span class="page--value">"true"</span> <span class="page--attr">aria-label</span>=<span class="page--value">"User Settings"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</span></code>
-      <h3 class="page--subtitle">Javascript Simple <small class="page--subtitle-small">(by attribute)</small></h3>
-      <code><span data-clipboard>&lt;<span class="page--tag">script</span>&gt;
+      <div class="page--contain">
+        <h3 class="page--subtitle">Javascript</h3>
+        <p>You can add Tipfy script in 3 ways: "<strong>CDN (ES6)</strong>, <strong>ES5 script</strong> and <strong>Local Script</strong>"</p>
+        <h4 class="page--minititle">CDN script</h4>
+        <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/tipfy/master/js/tipfy.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</span></code>
+        <h4 class="page--minititle">ES5 script</h4>
+        <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"path/js/tipfy.es5.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</span></code>
+        <h4 class="page--minititle">Local script</h4>
+        <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"path/js/tipfy.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</code>
+      </div>
+      <div class="page--contain">
+        <h3 class="page--subtitle">Stylesheet</h3>
+        <p>You can add Tipfy stylesheet in 2 ways: "<strong>CDN <small>(Only Chrome and Firefox)</small></strong> and <strong>Local CSS <small>(by scss)</small></strong>"</strong></p>
+        <h4 class="page--minititle">CDN style <small class="page--minititle-small">(Only Chrome and Firefox)</small></h4>
+        <code><span data-clipboard>&lt;<span class="page--tag">link</span> <span class="page--attr">rel</span>=<span class="page--value">"stylesheet"</span> <span class="page--attr">href</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/tipfy/master/css/tipfy.raw.min.css"</span>&gt;</span></code>
+        <h4 class="page--minititle">Local style <small class="page--minititle-small">(by scss)</small></h4>
+        <code><span data-clipboard>&lt;<span class="page--tag">link</span> <span class="page--attr">rel</span>=<span class="page--value">"stylesheet"</span> <span class="page--attr">href</span>=<span class="page--value">"path/css/tipfy.min.css"</span>&gt;</span></code>
+      </div>
+      <div class="page--contain">
+        <h3 class="page--subtitle">Instance Selector</h3>
+        <p>You can instantiate Tipfy through standard CSS selectors</p>
+        <h4 class="page--minititle">Selector by attribute</h4>
+        <code>&lt;<span class="page--tag">i</span> <span class="page--attr">class</span>=<span class="page--value">"fa fa-user"</span> <span class="page--important">data-tipfy="User Settings"</span> <span class="page--attr">aria-hidden</span>=<span class="page--value">"true"</span> <span class="page--attr">aria-label</span>=<span class="page--value">"User Settings"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;
+
+&lt;<span class="page--tag">script</span>&gt;
   <span class="page--tag">new</span> <span class="page--value">Tipfy('</span><span class="page--important">[data-tipfy]</span><span class="page--value">')</span>;
-&lt;/<span class="page--tag">script</span>&gt;</span></code>
-      or
-      <code><span data-clipboard>&lt;<span class="page--tag">script</span>&gt;
+&lt;/<span class="page--tag">script</span>&gt;</code>
+        <h4 class="page--minititle">Selector by className</h4>
+        <code>&lt;<span class="page--tag">i</span> <span class="page--attr">class</span>=<span class="page--value">"fa fa-user</span> <span class="page--important">tooltip-by-class</span><span class="page--value">"</span> <span class="page--attr">aria-hidden</span>=<span class="page--value">"true"</span> <span class="page--attr">aria-label</span>=<span class="page--value">"User Settings"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;
+
+&lt;<span class="page--tag">script</span>&gt;
   <span class="page--tag">new</span> <span class="page--value">Tipfy('</span><span class="page--important">.tooltip-by-class</span><span class="page--value">')</span>;
-&lt;/<span class="page--tag">script</span>&gt;</span></code>
-    </div>
-    <div class="page--contain">
-      <h2 class="page--title">Examples</h2>
+&lt;/<span class="page--tag">script</span>&gt;</code>
+        <h4 class="page--minititle">Selector by className and attribute</h4>
+        <code>&lt;<span class="page--tag">span</span> <span class="page--attr">class</span>=<span class="page--value">"</span><span class="page--important">section</span><span class="page--value">"</span>&gt;
+  &lt;<span class="page--tag">i</span> <span class="page--attr">class</span>=<span class="page--value">"fa fa-user"</span> <span class="page--important">title="User Settings"</span> <span class="page--attr">aria-hidden</span>=<span class="page--value">"true"</span> <span class="page--attr">aria-label</span>=<span class="page--value">"User Settings"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;
+&lt;/<span class="page--tag">span</span>&gt;
+
+&lt;<span class="page--tag">script</span>&gt;
+  <span class="page--tag">new</span> <span class="page--value">Tipfy('</span><span class="page--important">.section [title]</span><span class="page--value">')</span>;
+&lt;/<span class="page--tag">script</span>&gt;</code>
+      </div>
+    </section>
+    <section class="page--contain">
+      <h2 class="page--subtitle">Examples</h2>
       <div class="example">
         <div class="example--item">
           <span class="example--text">The Simple Tooltip</span>
@@ -159,15 +181,15 @@
           <span class="example--icon" data-tipfy=".screen--logo" data-tipfy-text="">&#x1f5ff;</span>
         </div>
       </div>
-    </div>
-    <div class="page--contain">
-      <h2 class="page--title">Data attributes  <small class="page--subtitle-small">[data-*]</small></h2>
+    </section>
+    <section class="page--contain">
+      <h2 class="page--subtitle">Data attributes  <small class="page--minititle-small">[data-*]</small></h2>
       <p>If necessary, you could add attributes in the tag, to configure your tooltips options</p>
-      <h3 class="page--subtitle">data-tipfy</h3>
+      <h3 class="page--minititle">data-tipfy</h3>
       <p>Attribute to add text in your tooltip or HTML Element</p>
       <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--important">data-tipfy="Simple Text"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
       <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--important">data-tipfy=".select-class"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
-      <h3 class="page--subtitle">data-tipfy-side</h3>
+      <h3 class="page--minititle">data-tipfy-side</h3>
       <p>Attribute to add direction side in your tooltip</p>
       <ul class="page--list">
         <li>[data-tipfy-side="top"] <span class="page--default">(default)</span></li>
@@ -176,32 +198,32 @@
         <li>[data-tipfy-side="left"]</li>
       </ul>
       <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--attr">data-tipfy</span>=<span class="page--value">"Simple Text"</span> <span class="page--important">data-tipfy-side="right"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
-      <h3 class="page--subtitle">data-tipfy-class</h3>
+      <h3 class="page--minititle">data-tipfy-class</h3>
       <p>Attribute to add one or more custom class</p>
       <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--attr">data-tipfy</span>=<span class="page--value">"Simple Text"</span> <span class="page--important">data-tipfy-class="select-class-custom"</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
-      <h3 class="page--subtitle">data-tipfy-text</h3>
+      <h3 class="page--minititle">data-tipfy-text</h3>
       <p>Add data-tipfy-text attribute to get raw text, if your tooltip text is a selector css</p>
       <code data-clipboard="data">&lt;<span class="page--tag">i</span> <span class="page--attr">data-tipfy</span>=<span class="page--value">".select-class"</span> <span class="page--important">data-tipfy-text=""</span>&gt;&lt;/<span class="page--tag">i</span>&gt;</code>
-    </div>
-    <div class="page--contain">
-      <h2 class="page--title">Source</h2>
+    </section>
+    <section class="page--contain">
+      <h2 class="page--subtitle">Source</h2>
       <p>
         <a href="https://github.com/figuarnieri/tipfy" target="_blank">Github</a> | <a href="https://twitter.com/figuarnieri" target="_blank">@figuarnieri</a>
       </p>
-    </div>
-    <div class="page--contain">
-      <h2 class="page--title">License</h2>
+    </section>
+    <section class="page--contain">
+      <h2 class="page--subtitle">License</h2>
       <p>
         The MIT License<br>
         Copyright 2018 <sup>&copy;</sup> <a href="https://figuarnieri.github.io/" target="_blank">Filipe Guarnieri</a>
       </p>
-    </div>
+    </section>
   </div>
 
   <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
-  <script>const clipcode=new Clipboard('[data-clipboard]',{target:(e)=>{e.setAttribute('data-clipboard-copy','');return document.querySelector(e.dataset.clipboard==='data'?'[data-clipboard-copy] .page--important':'[data-clipboard-copy]')}});clipcode.on('success',(e)=>{e.trigger.removeAttribute('data-clipboard-copy');});</script>
+  <script>const clipcode=new Clipboard('[data-clipboard]',{target:(e)=>{e.setAttribute('data-clipboard-copy','');return document.querySelector(e.dataset.clipboard==='data'?'[data-clipboard-copy] .page--important':'[data-clipboard-copy]')}});clipcode.on('success',(e)=>{e.trigger.removeAttribute('data-clipboard-copy');});if(window.innerWidth < 1024)(document.querySelectorAll('.example--icon')[7].removeAttribute('data-tipfy-side'),document.querySelector('.screen--info').setAttribute('data-tipfy-side','left'));</script>
 
-  <script src="tipfy.min.js"></script>
+  <script src="js/tipfy.min.js"></script>
   <script>
     new Tipfy('[data-tipfy]');
   </script>

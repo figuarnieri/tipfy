@@ -1,35 +1,61 @@
 # Tipfy - Simple Tooltip ES 6
-A Javascript library ES6, without a dependency of jQuery, Zepto, and etc... Very simple to install and use. With only 2kb code (JS + CSS)
+A Javascript library ES6, without a dependency of jQuery, Zepto, and etc... Very simple to install and use. With only 4kb code (JS + CSS)
 ## Install / Usage
-### Add script file
+### Javascript
+You can add Tipfy script in 3 ways: "**CDN (ES6)**, **ES5 script** and **Local Script**"
+#### CDN script
 ```html
-<script src="https://cdn.rawgit.com/figuarnieri/tipfy/master/tipfy.min.js"></script>
-or
+<script src="https://cdn.rawgit.com/figuarnieri/tipfy/master/js/tipfy.min.js"></script>
+```
+#### ES5 script
+```html
+<script src="path/js/tipfy.es5.min.js"></script>
+```
+#### Local script
+```html
 <script src="path/js/tipfy.min.js"></script>
 ```
-### Add style file
+
+### Stylesheet
+You can add Tipfy stylesheet in 2 ways: "**CDN** _(Only Chrome and Firefox)_ and **Local CSS** _(by scss)_"
+#### CDN style _(Only Chrome and Firefox)_
 ```html
-<link rel="stylesheet" href="https://cdn.rawgit.com/figuarnieri/tipfy/master/tipfy.css">
-or
-<link rel="stylesheet" href="path/js/tipfy.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/figuarnieri/tipfy/master/css/tipfy.min.css">
 ```
-### HTML _(by class or attribute)_
-Insert a selector in class tag
+#### Local style (by scss)
+```html
+<link rel="stylesheet" href="path/css/tipfy.min.css">
+```
+
+### Instance Selector
+You can instantiate Tipfy through standard CSS selectors
+#### Selector by attribute
 ```html
 <i class="fa fa-user" data-tipfy="User Settings" aria-hidden="true" aria-label="User Settings"></i>
-or
-<i class="fa fa-user tooltip-by-class" aria-hidden="true" aria-label="User Settings"></i>
-```
-### Javascript Simple _(by attribute)_
-```html
+
 <script>
   new Tipfy('[data-tipfy]');
 </script>
-or
+```
+#### Selector by className
+```html
+<i class="fa fa-user tooltip-by-class" aria-hidden="true" aria-label="User Settings"></i>
+
 <script>
   new Tipfy('.tooltip-by-class');
 </script>
 ```
+#### Selector by className and attribute
+```html
+<span class="section">
+  <i class="fa fa-user" title="User Settings" aria-hidden="true" aria-label="User Settings"></i>
+</span>
+
+<script>
+  new Tipfy('.section [title]');
+</script>
+```
+
 ## Data attributes _[data-*]_
 If necessary, you could add attributes in the tag, to configure your tooltips options
 

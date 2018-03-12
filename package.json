@@ -1,0 +1,39 @@
+{
+  "name": "Tipfy",
+  "version": "1.1.0",
+  "description": "A Javascript library ES6, without a dependency of jQuery, Zepto, and etc... Very simple to install and use. With only 2kb code (JS + CSS)",
+  "contributors": [
+    {
+      "name": "@figuarnieri",
+      "email": "figuarnieri@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/figuarnieri/tipfy"
+  },
+  "bugs": {
+    "email": "figuarnieri@gmail.com"
+  },
+  "keywords": [
+    "tooltip",
+    "tipfy",
+    "nojquery",
+    "es6",
+    "tips"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "es6": "0.0.7",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "husky": "^0.14.3"
+  }
+}
